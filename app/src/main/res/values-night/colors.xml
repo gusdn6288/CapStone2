@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="status_bar">#292929</color>
+    <color name="navigation_bar">#292929</color>
+    <color name="scene_basic">#292929</color>
+    <color name="list_background">#013A67</color>
+    <color name="list_item_default">#015495</color>
+    <color name="list_item_pressed">#003055</color>
+    <color name="list_item_divider">#296798</color>
+</resources>
