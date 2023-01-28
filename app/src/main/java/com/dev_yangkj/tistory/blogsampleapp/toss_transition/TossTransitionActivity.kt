@@ -15,8 +15,8 @@ class TossTransitionActivity : AppCompatActivity() {
         SettingsFragment()
     )
 
-    // animation 방향 계산을 위해 현재 위치 값 저장
-    private var currentPosition = 0
+    // animation 방향 계산을 위해 가장 마지막 위치 값 저장
+    private var recentPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,31 +31,45 @@ class TossTransitionActivity : AppCompatActivity() {
         // BottomNavigation 아이템 선택 콜백
         binding.bottomNavigationView.setOnItemSelectedListener {
             val transaction = supportFragmentManager.beginTransaction()
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.bottom_navigation_item_home -> {
-                    transaction.setCustomAnimations(R.anim.anim_slide_in_from_left_fade_in, R.anim.anim_fade_out)
+                    transaction.setCustomAnimations(
+                        R.anim.anim_slide_in_from_left_fade_in,
+                        R.anim.anim_fade_out
+                    )
                     transaction.replace(binding.frameLayout.id, fragments[0])
                     transaction.commit()
-                    currentPosition = 0
+                    recentPosition = 0
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_navigation_item_chart -> {
 
-                    if(currentPosition < 1) {
-                        transaction.setCustomAnimations(R.anim.anim_slide_in_from_right_fade_in, R.anim.anim_fade_out)
+                    // 두번째 보다 작은 왼쪽에서 이동해 올 경우 오른쪽에서 화면이 나타남
+                    // 반대의 경우 왼쪽에서 나타남
+                    if (recentPosition < 1) {
+                        transaction.setCustomAnimations(
+                            R.anim.anim_slide_in_from_right_fade_in,
+                            R.anim.anim_fade_out
+                        )
                     } else {
-                        transaction.setCustomAnimations(R.anim.anim_slide_in_from_left_fade_in, R.anim.anim_fade_out)
+                        transaction.setCustomAnimations(
+                            R.anim.anim_slide_in_from_left_fade_in,
+                            R.anim.anim_fade_out
+                        )
                     }
                     transaction.replace(binding.frameLayout.id, fragments[1])
                     transaction.commit()
-                    currentPosition = 1
+                    recentPosition = 1
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_navigation_item_settings -> {
-                    transaction.setCustomAnimations(R.anim.anim_slide_in_from_right_fade_in, R.anim.anim_fade_out)
+                    transaction.setCustomAnimations(
+                        R.anim.anim_slide_in_from_right_fade_in,
+                        R.anim.anim_fade_out
+                    )
                     transaction.replace(binding.frameLayout.id, fragments[2])
                     transaction.commit()
-                    currentPosition = 2
+                    recentPosition = 2
                     return@setOnItemSelectedListener true
                 }
             }
