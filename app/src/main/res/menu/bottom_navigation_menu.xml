@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_navigation_item_home"
+        android:enabled="true"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/bottom_navigation_item_chart"
+        android:enabled="true"
+        android:icon="@drawable/baseline_show_chart_24"
+        android:title="Chart"/>
+
+    <item
+        android:id="@+id/bottom_navigation_item_settings"
+        android:enabled="true"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Settings"/>
+
+</menu>

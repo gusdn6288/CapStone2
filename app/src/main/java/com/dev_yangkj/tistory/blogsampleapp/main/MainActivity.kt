@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev_yangkj.tistory.blogsampleapp.R
 import com.dev_yangkj.tistory.blogsampleapp.databinding.ActivityMainBinding
 import com.dev_yangkj.tistory.blogsampleapp.selector_duration.SelectorDurationActivity
+import com.dev_yangkj.tistory.blogsampleapp.toss_transition.TossTransitionActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MainSceneListAdapter
 
     private val sceneList = arrayOf(
-        "Selector with duration"
+        "Selector with duration",
+        "Toss Transition"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,12 +46,19 @@ class MainActivity : AppCompatActivity() {
     private fun onClickItem(index: Int) {
         when(index) {
             0 -> goToSelectorDurationActivity()
+            1 -> goToTossTransitionActivity()
         }
     }
 
     private fun goToSelectorDurationActivity() {
-        Log.d("KJTEST", "goToButtonBackgroundActivity")
+        Log.d("KJTEST", "goToSelectorDurationActivity")
         val intent = Intent(this, SelectorDurationActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToTossTransitionActivity() {
+        Log.d("KJTEST", "goToTossTransitionActivity")
+        val intent = Intent(this, TossTransitionActivity::class.java)
         startActivity(intent)
     }
 

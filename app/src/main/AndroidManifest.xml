@@ -27,6 +27,7 @@
         </activity>
 
         <activity android:name=".selector_duration.SelectorDurationActivity"/>
+        <activity android:name=".toss_transition.TossTransitionActivity"/>
 
     </application>
 
