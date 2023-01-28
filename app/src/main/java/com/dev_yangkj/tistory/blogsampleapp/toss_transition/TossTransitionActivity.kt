@@ -2,7 +2,6 @@ package com.dev_yangkj.tistory.blogsampleapp.toss_transition
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.dev_yangkj.tistory.blogsampleapp.R
 import com.dev_yangkj.tistory.blogsampleapp.databinding.ActivityTossTransitionBinding
 
@@ -21,8 +20,8 @@ class TossTransitionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_toss_transition)
-
+        binding = ActivityTossTransitionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // 첫 화면 초기화 HomeFragment
         supportFragmentManager.beginTransaction()
