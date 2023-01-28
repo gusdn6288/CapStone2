@@ -33,7 +33,7 @@ class TossTransitionActivity : AppCompatActivity() {
             val transaction = supportFragmentManager.beginTransaction()
             when(it.itemId) {
                 R.id.bottom_navigation_item_home -> {
-                    transaction.setCustomAnimations(R.anim.anim_slide_in_from_right_fade_in, R.anim.anim_fade_out)
+                    transaction.setCustomAnimations(R.anim.anim_slide_in_from_left_fade_in, R.anim.anim_fade_out)
                     transaction.replace(binding.frameLayout.id, fragments[0])
                     transaction.commit()
                     currentPosition = 0
@@ -42,9 +42,9 @@ class TossTransitionActivity : AppCompatActivity() {
                 R.id.bottom_navigation_item_chart -> {
 
                     if(currentPosition < 1) {
-                        transaction.setCustomAnimations(R.anim.anim_slide_in_from_left_fade_in, R.anim.anim_fade_out)
-                    } else {
                         transaction.setCustomAnimations(R.anim.anim_slide_in_from_right_fade_in, R.anim.anim_fade_out)
+                    } else {
+                        transaction.setCustomAnimations(R.anim.anim_slide_in_from_left_fade_in, R.anim.anim_fade_out)
                     }
                     transaction.replace(binding.frameLayout.id, fragments[1])
                     transaction.commit()
@@ -52,7 +52,7 @@ class TossTransitionActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_navigation_item_settings -> {
-                    transaction.setCustomAnimations(R.anim.anim_slide_in_from_left_fade_in, R.anim.anim_fade_out)
+                    transaction.setCustomAnimations(R.anim.anim_slide_in_from_right_fade_in, R.anim.anim_fade_out)
                     transaction.replace(binding.frameLayout.id, fragments[2])
                     transaction.commit()
                     currentPosition = 2
